@@ -29,7 +29,7 @@ const displayNews = newsDetail => {
     const newsDetailContainer = document.getElementById('news-detail-card')
     newsDetailContainer.textContent = ''
     newsDetail.forEach(newsDetail =>{
-        console.log(newsDetail)
+        // console.log(newsDetail)
         const {_id, title, thumbnail_url, author, details, total_view} = newsDetail
         const div = document.createElement('div')
         div.classList.add('row', 'mt-2')
@@ -59,7 +59,7 @@ const displayNews = newsDetail => {
             </div>
         </div>
         <div>
-            <button class="btn btn-primary">Details</button>
+            <button onclick="loadNewsDetails('${_id}')" class="btn btn-primary">Details</button>
         </div>
     </div>
       </div>
@@ -68,4 +68,10 @@ const displayNews = newsDetail => {
     })
 }
 
+const loadNewsDetails = async(news_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`
+    const res = await fetch(url)
+    const data = await res.json()
+    console.log(data.data[0])
+}
 loadCatagory()
