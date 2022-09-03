@@ -43,8 +43,8 @@ const displayNews = newsDetail => {
       <p class="card-text">${details.length > 50 ? details.slice(0,100) + '...' : details}</p>
       <div class="d-flex justify-content-between card-text text-muted">
         <div class="d-flex">
-            <div style="max-width: 20px; max-height: 20px;">
-                <img src="${author.img}" alt="">
+            <div>
+                <img src="${author.img}"style="height:20px;width:20px;"alt="">
             </div>
             <div>
                 <p>${author.name}</p>
