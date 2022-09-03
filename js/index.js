@@ -83,6 +83,8 @@ const displayNewsDetails = news => {
     detailesNews.innerHTML = `
     <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
     <p>${news.details}</p>
+    <p>Rating:${news.rating.number} (${news.rating.badge})</p>
+
     `
 }
 
