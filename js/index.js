@@ -59,7 +59,7 @@ const displayNews = newsDetail => {
             </div>
         </div>
         <div>
-            <button onclick="loadNewsDetails('${_id}')" class="btn btn-primary">Details</button>
+            <button type="button" onclick="loadNewsDetails('${_id}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
         </div>
     </div>
       </div>
@@ -73,5 +73,16 @@ const loadNewsDetails = async(news_id) => {
     const res = await fetch(url)
     const data = await res.json()
     console.log(data.data[0])
+    displayNewsDetails(data.data[0])
+}
+
+const displayNewsDetails = news => {
+    const modalTtitle = document.getElementById('exampleModalLabel')
+    modalTtitle.innerText = news.title
+    const detailesNews = document.getElementById('details-news')
+    detailesNews.innerHTML = `
+    <img src="${thumbnail_url}" class="img-fluid rounded-start" alt="...">
+    <p>${details}</p>
+    `
 }
 loadCatagory()
