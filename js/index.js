@@ -81,8 +81,9 @@ const displayNewsDetails = news => {
     modalTtitle.innerText = news.title
     const detailesNews = document.getElementById('details-news')
     detailesNews.innerHTML = `
-    <img src="${thumbnail_url}" class="img-fluid rounded-start" alt="...">
-    <p>${details}</p>
+    <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+    <p>${news.details}</p>
     `
 }
+
 loadCatagory()
