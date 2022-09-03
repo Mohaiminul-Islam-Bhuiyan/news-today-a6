@@ -18,6 +18,7 @@ const displayNewsCatagory = data => {
 }
 
 const loadNews = async(category_id) => {
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
     const res = await fetch(url)
     const data = await res.json()
@@ -66,6 +67,7 @@ const displayNews = newsDetail => {
         `
         newsDetailContainer.appendChild(div)
     })
+    toggleSpinner(false);
 }
 
 const loadNewsDetails = async(news_id) => {
@@ -86,6 +88,16 @@ const displayNewsDetails = news => {
     <p>Rating:${news.rating.number ? news.rating.number : 'no data'} (${news.rating.badge ? news.rating.badge : 'no data'})</p>
 
     `
+}
+
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader')
+    if(isLoading){
+        loaderSection.classList.remove('d-none');
+    }
+    else{
+        loaderSection.classList.add('d-none');
+    }
 }
 
 loadCatagory()
