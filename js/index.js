@@ -44,10 +44,10 @@ const displayNews = newsDetail => {
       <div class="d-flex justify-content-between card-text text-muted">
         <div class="d-flex">
             <div>
-                <img src="${author.img}"style="height:20px;width:20px;"alt="">
+                <img src="${author.img}"style="height:25px;width:25px;border-radius: 50%;"alt="">
             </div>
             <div>
-                <p>${author.name}</p>
+                <p>${author.name ? author.name : 'no data'}</p>
             </div>
         </div>
         <div class="d-flex">
@@ -55,7 +55,7 @@ const displayNews = newsDetail => {
                 <i class="fa-solid fa-eye"></i>
             </div>
             <div>
-                <p>${total_view}</p>
+                <p>${total_view ? total_view : 'no data'}</p>
             </div>
         </div>
         <div>
@@ -82,7 +82,7 @@ const displayNewsDetails = news => {
     const detailesNews = document.getElementById('details-news')
     detailesNews.innerHTML = `
     <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
-    <p>${news.details}</p>
+    <p>${news.details ? news.details : 'no data'}</p>
     <p>Rating:${news.rating.number} (${news.rating.badge})</p>
 
     `
