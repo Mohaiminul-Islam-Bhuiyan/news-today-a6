@@ -81,9 +81,9 @@ const displayNewsDetails = news => {
     modalTtitle.innerText = news.title
     const detailesNews = document.getElementById('details-news')
     detailesNews.innerHTML = `
-    <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+    <img src="${news.thumbnail_url ? news.thumbnail_url : 'no data'}" class="img-fluid rounded-start" alt="...">
     <p>${news.details ? news.details : 'no data'}</p>
-    <p>Rating:${news.rating.number} (${news.rating.badge})</p>
+    <p>Rating:${news.rating.number ? news.rating.number : 'no data'} (${news.rating.badge ? news.rating.badge : 'no data'})</p>
 
     `
 }
