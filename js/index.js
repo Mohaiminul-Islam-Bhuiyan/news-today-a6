@@ -34,7 +34,7 @@ const loadNews = async(category_id) => {
         newsNumberField.value = 'No news found';
     }
     else{
-        newsNumberField.value = 'Total news found: '+ dataArray.length;
+        newsNumberField.value = 'Total news: '+ dataArray.length;
     }
     displayNews(data.data)
 }
@@ -46,7 +46,7 @@ const displayNews = newsDetail => {
         // console.log(newsDetail)
         const {_id, title, thumbnail_url, author, details, total_view} = newsDetail
         const div = document.createElement('div')
-        div.classList.add('row', 'mt-2')
+        div.classList.add('row', 'mb-3','border', 'border-dark', 'rounded')
         div.innerHTML= `
         <div class="col-md-4 text-center">
         <img src="${thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -114,3 +114,4 @@ const toggleSpinner = isLoading => {
 }
 
 loadCatagory()
+loadNews('08')
