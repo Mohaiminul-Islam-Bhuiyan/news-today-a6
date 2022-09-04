@@ -46,7 +46,7 @@ const displayNews = newsDetail => {
         // console.log(newsDetail)
         const {_id, title, thumbnail_url, author, details, total_view} = newsDetail
         const div = document.createElement('div')
-        div.classList.add('row', 'mb-3','border', 'border-dark', 'rounded')
+        div.classList.add('row', 'g-0','border', 'border-dark', 'rounded')
         div.innerHTML= `
         <div class="col-md-4 text-center">
         <img src="${thumbnail_url}" class="img-fluid rounded-start" alt="...">
